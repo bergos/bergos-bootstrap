@@ -14,7 +14,7 @@
 @gray-light:             lighten(@gray-base, 46.7%); // #777
 @gray-lighter:           lighten(@gray-base, 93.5%); // #eee
 
-@brand-primary:         darken(#428bca, 6.5%); // #337ab7
+@brand-primary:         #6af;
 @brand-success:         #5cb85c;
 @brand-info:            #5bc0de;
 @brand-warning:         #f0ad4e;
@@ -28,7 +28,7 @@
 //** Background color for `<body>`.
 @body-bg:               #fff;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            #bbb;
 
 //** Global textual link color.
 @link-color:            @brand-primary;
@@ -881,7 +881,7 @@
     background-position: -5000px 5000px;
   }
 }
-
+/*
 .universe {
   perspective: 1px;
   height: 100vh;
@@ -891,8 +891,8 @@
 
 .stars1, .stars2, .twinkle {
   position: absolute;
-  width: 200%;
-  height: 200%;
+  width: 100%;
+  height: 100%;
   display: block;
   overflow: hidden;
 }
@@ -923,5 +923,16 @@
 
 .container-fluid {
   position: relative;
-  //transform: translateZ(0) scale(1);
+  transform: translateZ(0) scale(1);
+}
+*/
+
+.universe {
+  background: #000 url("/images/stars.png") repeat top center;
+}
+
+.footer {
+  padding: 40px 0;
+  margin-top: 20px;
+  margin-bottom: inherit !important;
 }
