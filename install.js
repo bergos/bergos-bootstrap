@@ -4,15 +4,27 @@ require('shelljs/global')
 
 var program = require('commander')
 
-function clean () {
+function cleanArtifacts () {
+  cd(__dirname)
+
   rm('-rf', '.build')
 }
 
+function clean () {
+  cleanArtifacts()
+
+  cd(__dirname)
+
+  rm('-rf', 'dist')
+}
+
 function dist () {
+  cd(__dirname)
+
   mkdir('-p', '.build')
 
   // clone bootstrap repo
-  exec('git clone --depth 1 --branch v3-dev git@github.com:twbs/bootstrap.git .build/original')
+  exec('git clone --depth 1 --branch v3-dev git@github.com:twbs/bootstrap.git ' + '.build/original')
 
   // copy everything to custom
   mkdir('-p', '.build/custom/')
@@ -28,6 +40,7 @@ function dist () {
   cd('../..')
 
   // copy distribution
+  mkdir('-p', 'dist')
   cp('-r', '.build/custom/dist/*', 'dist/')
   cp('-r', 'custom/dist/*', 'dist/')
 }
@@ -35,6 +48,10 @@ function dist () {
 program
   .command('clean')
   .action(clean)
+
+program
+  .command('clean-artifacts')
+  .action(cleanArtifacts)
 
 program
   .command('dist')

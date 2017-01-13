@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "node install dist"
+    "install": "node install dist && node install clean-artifacts"
   },
   "author": "",
   "license": "MIT",
